@@ -6,4 +6,4 @@ const livrosCountrouller = require('../controllers/livros.controllers');
 
 router.get('/', livrosCountrouller.listarLivros);
 
-module.export = {router};
+module.exports = router;

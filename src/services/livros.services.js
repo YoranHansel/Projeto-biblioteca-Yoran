@@ -33,4 +33,4 @@ const buscarLivroPorId = async (id) => {
     return livro || null;
 };
 
-module.exports = {lsitarTodosLivros, buscarLivroPorId};
+module.exports = {listarTodosLivros, buscarLivroPorId};

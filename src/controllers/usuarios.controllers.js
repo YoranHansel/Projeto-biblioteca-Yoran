@@ -3,7 +3,7 @@ const usuariosService = require('../services/usuarios.services');
 //Get usuarios
 const listarUsuarios = async (req, res) => {
     try {
-        const usuarios = await usuariosService.listarTodosUsuario();
+        const usuarios = await usuariosService.listarTodosUsuarios();
         res.status(200).json({ total: usuariosService.length, usuarios });
     } catch (error) {
         res.status(500).json({ erro: 'Erro interno ao buscar os usuarios' });

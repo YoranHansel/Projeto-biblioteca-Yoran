@@ -1,20 +1,18 @@
 const express = require('express');
-
-const livrosRoutes = require('./src/routes/livros.routes');
+const rotas = require('./src/routes/index.routes');
 
 const app = express();
 
 app.use(express.json());
 
 //Registro das rotas
-app.use('/livros', livrosRoutes);
 
-app.get('/', (req, res) => {
-    res.json({
-        sistema: 'Biblioteca M4',
-        status: 'Online'
-    });
+app.use((req, res, next) => {
+    console.log(`Requisição recebida: ${req.method} ${req.url}`);
+    next(); 
 });
+
+app.use(rotas);
 
 const PORT = 3000;
 

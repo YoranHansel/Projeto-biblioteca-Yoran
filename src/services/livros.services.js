@@ -29,7 +29,7 @@ const listarTodosLivros = async () => {
 
 //Buscar livro pelo id
 const buscarLivroPorId = async (id) => {
-    const livro = acervo.find(item => item.id === Nunber(id));
+    const livro = acervo.find(item => item.id === Number(id));
     return livro || null;
 };
 

@@ -8,7 +8,7 @@ app.use(express.json());
 //Registro das rotas
 
 app.use((req, res, next) => {
-    console.log(`Requisição recebida: ${req.method} ${req.url}`);
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
     next(); 
 });
 

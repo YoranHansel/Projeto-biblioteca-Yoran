@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const livrosRoutes = require('./livros.routes');
-const usuriosRoutes = require('./usuarios.routes');
+const usuariosRoutes = require('./usuarios.routes');
+const { logger } = require('../middlewares/main.middlewares');
 
 //1.Rotas de Recursos (Coloque SEMPRE antes do 404)
 router.use('/livros', livrosRoutes);
-router.use('/usuarios', usuriosRoutes);
+router.use('/usuarios', usuariosRoutes);
+router.use(logger); // Middleware de logger para todas as rotas
 
 //2.Rota Raiz
 router.get('/', (req, res) => {
-    res.json({sistema: 'Bivlioteca Ralph & Teddy', status: 'Online'});
+    res.json({sistema: 'Biblioteca Ralph & Teddy', status: 'Online'});
 });
 
 //3.Rota 404 (A última linha deste arquivo)

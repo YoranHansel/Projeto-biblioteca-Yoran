@@ -17,6 +17,13 @@ const usuarios = [
         nome: "Miles",
         email: "miles@gmail.com",
     },
+
+    {
+        id: 4,
+        nome: "Malcoretinho",
+        email: "filhodomalcon@gmail.com",
+    },
+
 ];
 
 //Listar todos os usuarios

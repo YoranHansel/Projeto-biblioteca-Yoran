@@ -19,4 +19,14 @@ const buscarLivrosPorId = async (req, res) => {
     }
 };
 
-module.exports = { listarLivros, buscarLivrosPorId };
+const cadastrarLivros = async (req, res) => {
+    try {
+        const novoLivro = await livrosService.cadastrarLivros(req.body);
+        res.status(201).json(novoLivro);
+    } catch (error) {
+        res.status(500).json({ erro: 'Erro interno ao cadastrar o livro' });
+    }
+};
+
+
+module.exports = { listarLivros, buscarLivrosPorId, cadastrarLivros };

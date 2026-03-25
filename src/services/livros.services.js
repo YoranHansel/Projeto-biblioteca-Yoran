@@ -33,4 +33,14 @@ const buscarLivroPorId = async (id) => {
     return livro || null;
 };
 
-module.exports = {listarTodosLivros, buscarLivroPorId};
+const cadastrarLivros = async (livro) => {
+    const novoLivro = {
+        id: acervo.length + 1,
+        ...livro
+    };
+    acervo.push(novoLivro);
+    return novoLivro;
+};
+
+
+module.exports = {listarTodosLivros, buscarLivroPorId, cadastrarLivros};

@@ -5,9 +5,10 @@ const usuariosRoutes = require('./usuarios.routes');
 const { logger } = require('../middlewares/main.middlewares');
 
 //1.Rotas de Recursos (Coloque SEMPRE antes do 404)
+router.use(logger); // Middleware de logger para todas as rotas
 router.use('/livros', livrosRoutes);
 router.use('/usuarios', usuariosRoutes);
-router.use(logger); // Middleware de logger para todas as rotas
+
 
 //2.Rota Raiz
 router.get('/', (req, res) => {

@@ -4,6 +4,10 @@ const livrosRoutes = require('./livros.routes');
 const usuariosRoutes = require('./usuarios.routes');
 const { logger } = require('../middlewares/main.middlewares');
 const {autenticar} = require('../middlewares/auth.middleware.js');
+const { validarContentType } = require('../middlewares/contentType.middleware.js');
+
+//1.Middleware Global
+
 
 //2.Rota Raiz
 router.get('/', (req, res) => {
@@ -12,6 +16,7 @@ router.get('/', (req, res) => {
 
 
 router.use(autenticar);
+router.use(validarContentType); // Middleware para validar o Content-Type em todas as rotas
 //Rotas de Recursos (coloque sempre antes do 404)
 router.use(logger); // Middleware de logger para todas as rotas
 router.use('/livros', livrosRoutes);

@@ -1,36 +1,22 @@
-const acervo = [
-    
-    {
-        id: 1,
-        titulo: "Batata suprema",
-        autor: "Turip potato",
-        disponível: true,
-    },
-
-    {
-        id: 2,
-        titulo: "Tomates jogados",
-        autor: "Vermelito tomatito",
-        disponível: true,
-    },
-
-    {
-        id: 3,
-        titulo: "Extraordinário",
-        autor: "Raquel Jaramillo",
-        disponível: true,
-    },
-];
+const pool = require('../database/connection');
 
 //Listar todos os livros
 const listarTodosLivros = async () => {
-    return acervo
+    try {
+        const resultado = await pool.query('SELECT * FROM livros ORDER BY id');
+        return resultado.rows;
+    } catch(error){
+        console.log('Erro ao listar todos os livros', error.message);
+        throw error;
+    };
 };
 
 //Buscar livro pelo id
 const buscarLivroPorId = async (id) => {
-    const livro = acervo.find(item => item.id === Number(id));
-    return livro || null;
+    const resultado = await pool.query('SELECT * FROM livros WHERE id = $1',[
+        id,
+    ]);
+    return resultado.rows[0];
 };
 
 const cadastrarLivros = async (livro) => {

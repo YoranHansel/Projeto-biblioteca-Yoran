@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
 
 
 router.use(autenticar);
-router.use(validarContentType); // Middleware para validar o Content-Type em todas as rotas
+// router.use(validarContentType); 
+// Middleware para validar o Content-Type em todas as rotas
 //Rotas de Recursos (coloque sempre antes do 404)
 router.use(logger); // Middleware de logger para todas as rotas
 router.use('/livros', livrosRoutes);
